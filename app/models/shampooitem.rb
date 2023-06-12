@@ -1,0 +1,2 @@
+class Shampooitem < ApplicationRecord
+end
