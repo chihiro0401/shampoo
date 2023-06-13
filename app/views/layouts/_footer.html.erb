@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="empty-space"></div>
+      </div>
+      <div class="mx-auto text-center">
+        <% if admin_signed_in? %>
+          <%= link_to "管理者ページ", admin_root_path, class: "nav-link" %>
+        <% else %>
+          <%= link_to "管理者ページ", admin_session_path, class: "nav-link" %>
+        <% end %>
+          <p>Hair Shampoo.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.empty-space {
+  width: 100%;
+  margin-top: 10px;
+  height: 130px;
+}
+</style>
