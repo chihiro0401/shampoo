@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Shampooitem.create!(
+  [
+    {
+      brandname: 'いち髪',
+      description: '見本',
+      price: 400
+    },
+    {
+      brandname: '&ハニー',
+      description: '見本',
+      price: 500
+    },
+    {
+      brandname: 'オクト',
+      description: '見本',
+      price: 200
+    },
+    {
+      brandname: 'リンス',
+      description: '見本',
+      price: 300
+    }
+  ]
+)

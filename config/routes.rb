@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
  scope module: 'user' do
    #レビューについて
-   resources :reviews, only: [:index, :show, :edit, :create, :update, :destroy]
+   resources :reviews, only: [:new, :index, :show, :edit, :create, :update, :destroy]
    #会員について
    resources :users, only: [:index, :edit, :update, :check]
    get '/users/mypage' => 'users#show'

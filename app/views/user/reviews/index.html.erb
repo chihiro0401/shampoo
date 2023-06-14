@@ -1,0 +1,24 @@
+<div class="col-md-8 offset-md-1">
+  <h2>レビュー一覧</h2>
+  <table class= "table table-hobver table-inverse">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @reviews.each do |review| %>
+      <tr>
+         <td>
+          <%= image_tag(review.image.presence || "no_image.jpg", width: "100%", height: "200px") %>
+         </td>
+       <td><%=link_to review.title,review_path(review.id) %></td>
+       <td><%= review.description%></td>
+       </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
