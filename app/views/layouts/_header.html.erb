@@ -1,0 +1,84 @@
+<header style="background-color:rgb(196, 223, 223);">
+  <div class="container">
+    <div class="d-flex flex-row justify-content-between">
+      <div class="col-md-3">
+        <h1 class="sample" style="margin-top: 50px;">
+          <a href="<%= root_path %>" style="font-family: Comic Sans MS; color: #99FFFF; text-decoration: none;">
+            Hair Shampoo
+          </a>
+        </h1>
+      </div>
+      <nav class="navbar navbar-expand">
+        <ul class="nav navbar-nav" style="margin-top: 30px;">
+          <% if user_signed_in? %>
+            <!-- 顧客がログインしている場合 -->
+            <li class="nav-link">
+              <p class="nav-link" style="font-family: serif; margin-top: 15px;">
+                ようこそ、<%= current_user.name %>さん！
+              </p>
+            </li>
+            <%= link_to users_mypage_path, class:"nav-link" , style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-user fa-fw fa-lg "></i> My Page
+              </li>
+              <% end %>
+              <%= link_to reviews_path, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-birthday-cake"></i> Shampoo Review
+              </li>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-sign-out-alt"></i> Log Out
+              </li>
+              <% end %>
+           <% elsif admin_signed_in? %>
+            <!-- 管理者がログインしている場合 -->
+              <%= link_to admin_reviews_path, class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-birthday-cake"></i> レビュー一覧
+              </li>
+              <% end %>
+              <%= link_to admin_users_path ,class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-users fa-fw fa-lg "></i> 会員一覧
+              </li>
+              <% end %>
+              <!--<%= link_to admin_root_path, class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>-->
+              <!--<li class="nav-item">                -->
+              <!--  <i class="fas fa-yen-sign fa-fw fa-lg "></i> シャンプー一覧-->
+              <!--</li>-->
+              <!--<% end %>-->
+              <%= link_to admin_categories_path ,class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-check fa-fw fa-lg "></i> カテゴリー(髪質）一覧
+              </li>
+              <% end %>
+              <%= link_to destroy_admin_session_path ,method: :delete, class:"nav-link button" ,style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-sign-out-alt"></i> ログアウト
+              </li>
+              <% end %>
+          <% else %>
+            <!-- ログインしていない場合 -->
+              <%= link_to about_path , class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="far fa-thumbs-up fa-fw fa-lg faa-tada animated"></i> About
+              </li>
+              <% end %>
+              <%= link_to new_user_registration_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-user-plus"></i> Sign Up
+              </li>
+              <% end %>
+              <%= link_to new_user_session_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-sign-in-alt"></i> Log In
+              </li>
+              <% end %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

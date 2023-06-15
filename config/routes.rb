@@ -33,6 +33,7 @@ Rails.application.routes.draw do
    #会員について
    resources :users, only: [:index, :edit, :update, :check]
    get '/users/mypage' => 'users#show'
+   get 'check' => 'users#check'
    get '/users/withdrawa' => 'uers#withdrawa'
    get '/users/withdrawal' => 'users#withdrawal'
  end
