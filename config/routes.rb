@@ -25,22 +25,23 @@ Rails.application.routes.draw do
 
  namespace :admin do
   #カテゴリーについて
-  resources :categories, only: [:index, :create, :edit, :update, :destroy]
+  resources :categories, only: [:index, :create, :edit, :update, :destroy, :show]
   #会員について
   resources :users, only: [:index, :show, :edit, :update]
   #レビューについて
-  resources :reviews, only: [:index, :show, :destroy]
+  resources :reviews, only: [:index, :show, :update, :destroy]
+  #シャンプーについて
+  resources :shampooitems, only: [:new, :index, :show, :edit, :create, :update, :destroy]
  end
 
  scope module: 'user' do
    #レビューについて
    resources :reviews, only: [:new, :index, :show, :edit, :create, :update, :destroy]
    #会員について
-   resources :users, only: [:index, :edit, :update, :check]
+   resources :users, only: [:index, :edit, :update]
    get '/users/mypage' => 'users#show'
    get 'check' => 'users#check'
-   get '/users/withdrawa' => 'uers#withdrawa'
-   get '/users/withdrawal' => 'users#withdrawal'
+   match '/users/withdrawal' => 'users#withdrawal', via: [:patch, :delete], as: 'users_withdrawal'
  end
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
 end

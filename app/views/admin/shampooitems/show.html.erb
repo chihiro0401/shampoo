@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <h4 class="p-4">シャンプー詳細</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mt-3">
+      <% if @shampooitem.image.attached? %>
+        <%= image_tag @shampooitem.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+      <table class="table table-borderless md-auto">
+        <tbody>
+          <tr>
+            <td>シャンプー名</td>
+            <td><%= @shampooitem.brandname %></td>
+          </tr>
+          <tr>
+            <td>コンセプト</td>
+            <td><%= @shampooitem.description %></td>
+          </tr>
+          <tr>
+            <td>税込価格(税抜価格)</td>
+            <td>
+              <% if @shampooitem.price %>
+                <%= number_to_currency(@shampooitem.price * 1.1, unit: "円", delimiter: ",", format: "%n%u") %>
+                (<%= number_to_currency(@shampooitem.price, unit: "円", delimiter: ",", format: "%n%u") %>)
+              <% end %>
+              <span>円</span>
+            </td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <%= link_to "編集する", edit_admin_shampooitem_path(@shampooitem), class: "btn btn-success" %>
+  </div>
+</div>

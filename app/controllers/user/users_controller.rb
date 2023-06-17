@@ -21,9 +21,9 @@ class User::UsersController < ApplicationController
   end
 
   def withdrawal
-     @user = crrent_user
+     @user = current_user
      @user.update(is_deleted: true)
-     reset_sessinon
+     reset_session
      flash[:notice] = "See you again!"
      redirect_to root_path
   end

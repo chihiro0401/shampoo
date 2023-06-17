@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="px-5 py-4">
+        <h4>カテゴリー(髪質)編集</h4>
+      </div>
+      <%= form_with model: @category, url: admin_category_path, local: true do |f| %>
+        <%= f.label :"カテゴリー名", class: 'mr-5 mt-5'%>
+        <%= f.text_field :name, :placeholder => "カテゴリー名", class: 'mr-5' %>
+        <%= f.submit "変更を保存", class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
