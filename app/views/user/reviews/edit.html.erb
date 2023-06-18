@@ -12,25 +12,18 @@
           </div>
 
           <div class="form-group row">
-            <%= f.label :商品名, class: 'col-md-3'%>
+            <%= f.label :ブランド名, class: 'col-md-3'%>
             <%= f.text_field :name, :placeholder => "商品名", class: "form-control col-md-5" %>
           </div>
 
           <div class="form-group row">
-            <%= f.label :商品説明, class: 'col-md-3'%>
+            <%= f.label :使ってみた感想, class: 'col-md-3'%>
             <%= f.text_area :description, :placeholder => "ここに説明文を記述します", class: 'col-md-5 form-control'%>
           </div>
 
           <div class="form-group row">
             <%= f.label :カテゴリー, class: 'col-md-3'%>
             <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: "--選択してください"},class: "col-md-5 form-control") %>
-          </div>
-          
-
-          <div class="form-group row">
-            <%= f.label :税抜価格, class: 'col-md-3'%>
-            <%= f.text_field :tax_excluded_price, :placeholder => "1000", class: 'col-md-5 form-control'%>
-            <span>円</span>
           </div>
 
           <div class="form-group col-2 offset-4 mt-2">

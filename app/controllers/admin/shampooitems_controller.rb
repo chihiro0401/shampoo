@@ -31,7 +31,7 @@ class Admin::ShampooitemsController < ApplicationController
     if @shampooitem.update(shampooitem_params)
       redirect_to admin_shampooitem_path(@shampooitem), notice: "シャンプーを編集しました。"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

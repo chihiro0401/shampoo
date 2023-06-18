@@ -18,14 +18,14 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_user_path(@user)
       flash[:notice_update] = "情報を更新しました。"
     else
-      edit_admin_user_path(@user)
+      render :edit
     end
   end
 
   private
 
   def user_params
-    params.require(:user).premit(:name, :email, :is_deleted)
+    params.require(:user).permit(:name, :email, :is_deleted)
   end
 
 end

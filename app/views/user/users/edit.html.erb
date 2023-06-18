@@ -3,7 +3,7 @@
     <div class="col-10">
       <h3><strong>登録情報編集</strong></h3>
 
-      <%= form_with(model:@user, url: edit_user_path(@user.id) ,method: :PATCH) do |f| %>
+      <%= form_with(model:@user, url: user_path(@user) ,method: :PATCH) do |f| %>
             <div class="row">
           <div class="col">
             <div class="field">
