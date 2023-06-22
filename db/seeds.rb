@@ -6,32 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts "-------------shampooitem create------------"
+puts "-------------shampooitem create------------"
 
-# shampooitem1 = Shampooitem.create!(
-#   brandname: "いち髪",
-#   description: "すべての人が健康的な髪を保ち、芯から美しい毎日を過ごせたら。",
-#   price: 741
-#   )
-#   shampooitem1.image.attach(io: File.open(Rails.root.join('app/assets/images/ichikami.jpg')), filename: 'ichikami.jpg')
+shampooitem1 = Shampooitem.create!(
+  brandname: "いち髪",
+  description: "すべての人が健康的な髪を保ち、芯から美しい毎日を過ごせたら。",
+  price: 741
+  )
+  shampooitem1.image.attach(io: File.open(Rails.root.join('app/assets/images/ichikami.jpg')), filename: 'ichikami.jpg')
 
-# puts "-------------shampooitem2 create------------"
+puts "-------------shampooitem2 create------------"
 
-# shampooitem2 = Shampooitem.create!(
-#   brandname: "ululis(ウルリス)",
-#   description: "インナードライ髪の水分量に着目。髪を美容水で包み込み、芯まで潤いで満たします。",
-#   price: 1540
-#   )
-#   shampooitem2.image.attach(io: File.open(Rails.root.join('app/assets/images/ululis.jpeg')), filename: 'ululis.jpeg')
+shampooitem2 = Shampooitem.create!(
+  brandname: "ululis(ウルリス)",
+  description: "インナードライ髪の水分量に着目。髪を美容水で包み込み、芯まで潤いで満たします。",
+  price: 1540
+  )
+  shampooitem2.image.attach(io: File.open(Rails.root.join('app/assets/images/ululis.jpeg')), filename: 'ululis.jpeg')
 
-# puts "-------------shampooitem3 create------------"
+puts "-------------shampooitem3 create------------"
 
-# shampooitem3 = Shampooitem.create!(
-#   brandname: "BOTANIST",
-#   description: "髪や肌のケアだけでなく、環境にやさしい選択をしました。",
-#   price: 1540
-#   )
-#   shampooitem3.image.attach(io: File.open(Rails.root.join('app/assets/images/botanist.jpeg')), filename: 'botanist.jpeg')
+shampooitem3 = Shampooitem.create!(
+  brandname: "BOTANIST",
+  description: "髪や肌のケアだけでなく、環境にやさしい選択をしました。",
+  price: 1540
+  )
+  shampooitem3.image.attach(io: File.open(Rails.root.join('app/assets/images/botanist.jpeg')), filename: 'botanist.jpeg')
 
 puts "-------------shampooitem4 create------------"
 
