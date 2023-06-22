@@ -8,13 +8,18 @@
         <%=form_with model: @review, url: reviews_path, local: true do |f| %>
 
           <div class="form-group row">
+            <%= f.label :参考シャンプー画像, class: 'col-md-3'%>
+            <%= f.collection_select(:shampooitem_id, Shampooitem.all, :id, :brandname, {prompt: "--選択してください"},class: "col-md-5 form-control") %>
+          </div>
+
+          <div class="form-group row">
             <%= f.label :ブランド名, class: 'col-md-3'%>
             <%= f.text_field :brandname, :placeholder => "ここに商品名を記述します", class: "form-control col-md-5" %>
           </div>
 
           <div class="form-group row">
             <%= f.label :使ってみた感想, class: 'col-md-3'%>
-            <%= f.text_area :description, :placeholder => "ここに説明文を記述します", class: 'col-md-5 form-control'%>
+            <%= f.text_area :description, :placeholder => "ここに感想を記述します", class: 'col-md-5 form-control'%>
           </div>
 
           <div class="form-group row">
@@ -22,10 +27,6 @@
             <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: "--選択してください"},class: "col-md-5 form-control") %>
           </div>
 
-          <div class="form-group row">
-            <%= f.label :参考シャンプー画像, :placeholder => "商品名",class: 'col-md-3'%>
-            <%= f.file_field :image, accept: "image/*" %>
-          </div>
 
           <div class="form-group col-2 offset-4 mt-2">
             <%= f.submit '新規投稿', class: 'btn btn-success btn-lg' %>

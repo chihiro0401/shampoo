@@ -1,5 +1,6 @@
 <header style="background-color:rgb(196, 223, 223);">
   <div class="container">
+    <a class="navbar-brand" href="/"><span>Hair Shampooo</span></a>
     <div class="d-flex flex-row justify-content-between">
       <div class="col-md-3">
         <h1 class="sample" style="margin-top: 50px;">
@@ -19,9 +20,14 @@
                 <i class="fas fa-user fa-fw fa-lg "></i> My Page
               </li>
               <% end %>
+              <%= link_to shampooitems_path, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">
+                <i class="fas fa-birthday-cake"></i> ShampooItem
+              </li>
+              <% end %>
               <%= link_to reviews_path, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">
-                <i class="fas fa-birthday-cake"></i> Shampoo Review
+                <i class="fas fa-birthday-cake"></i> Review
               </li>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
@@ -74,6 +80,10 @@
               </li>
               <% end %>
           <% end %>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+             </li>
+           </div>
+          </div>
         </ul>
       </nav>
     </div>

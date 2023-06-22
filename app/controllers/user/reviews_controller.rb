@@ -10,6 +10,7 @@ end
 
 def create
   @review = Review.new(review_params)
+  @review.user = current_user
   if @review.save
     redirect_to reviews_path(@review), notice:"レビューが投稿されました"
   else
@@ -19,7 +20,13 @@ end
 
 def edit
   @review =Review.find(params[:id])
-  @categories =Category.all
+end
+
+def destroy
+  @reveiew = Review.find(params[:id])
+  @reveiew.destroy
+  flash[:notice] = "レビューを削除しました。"
+  redirect_to reviews_path
 end
 
 def update
@@ -38,7 +45,7 @@ end
 private
 
 def review_params
-  params.require(:review).permit(:category_id, :brandname,:description, :tax_excluded_price, :is_status, :image)
+  params.require(:review).permit(:brandname, :description, :shampooitem_id, :category_id)
 end
 
 end

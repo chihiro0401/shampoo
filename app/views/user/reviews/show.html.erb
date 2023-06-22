@@ -5,8 +5,8 @@
 
   <div class="row">
     <div class="col-md-3 mt-3">
-      <% if @review.image.attached? %>
-        <%= image_tag @review.image, size: "200x200" %>
+      <% if @review.shampooitem.image.attached? %>
+        <%= image_tag @review.shampooitem.image, size: "200x200" %>
       <% else %>
         <%= image_tag 'no_image', size: "200x200" %>
       <% end %>
@@ -17,15 +17,15 @@
         <tbody>
           <tr>
             <td>ブランド名</td>
-            <td><%= @review.burandname %></td>
+            <td><%= @review.brandname %></td>
           </tr>
           <tr>
             <td>使ってみた感想</td>
             <td><%= @review.description %></td>
           </tr>
           <tr>
-            <td>カテゴリー</td>
-            <td><%= @review.category.name %></td>
+            <td>髪質について</td>
+            <td><%= @review.category_id %></td>
           </tr>
           </tr>
         </tbody>
@@ -35,5 +35,6 @@
 
   <div class="text-center">
     <%= link_to "編集する", edit_review_path(@review), class: "btn btn-success" %>
+    <%= link_to "削除する", review_path(@review), method: :delete, data: { confirm: "本当に削除しますか？" } %>
   </div>
 </div>

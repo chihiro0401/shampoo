@@ -39,6 +39,8 @@ Rails.application.routes.draw do
    resources :reviews, only: [:new, :index, :show, :edit, :create, :update, :destroy]
    #会員について
    resources :users, only: [:index, :edit, :update, :show]
+   #シャンプーについて
+   resources :shampooitems, only: [:index, :show]
    get '/users/mypage' => 'users#show'
    get 'check' => 'users#check'
    match '/users/withdrawal' => 'users#withdrawal', via: [:patch, :delete], as: 'users_withdrawal'
