@@ -2,6 +2,7 @@ class User::ReviewsController < ApplicationController
 
 def index
   @reviews = Review.all
+  @categories = Category.all
 end
 
 def new

@@ -25,7 +25,7 @@
           </tr>
           <tr>
             <td>髪質について</td>
-            <td><%= @review.category_id %></td>
+            <td><%= @review.category.name %></td>
           </tr>
           </tr>
         </tbody>
@@ -51,7 +51,7 @@
    </div>
    <% end %>
 
-   <% @review.comments.reverse.each do |comment| %>
+   <% @review.review_comments.reverse.each do |comment| %>
     <div>
       <div>
         <%= comment.user.name %>
@@ -70,3 +70,4 @@
  <%#= paginate @reviews %>
  </div>
 
+<!---->

@@ -27,8 +27,8 @@
             <td>税込価格(税抜価格)</td>
             <td>
               <% if @shampooitem.price %>
-                <%= number_to_currency(@shampooitem.price * 1.1, unit: "円", delimiter: ",", format: "%n%u") %>
-                (<%= number_to_currency(@shampooitem.price, unit: "円", delimiter: ",", format: "%n%u") %>)
+                <%= number_to_currency(@shampooitem.price * 1.1, precision: 0, unit: "円", delimiter: ",", format: "%n%u") %>
+                (<%= number_to_currency(@shampooitem.price, precision: 0, unit: "円", delimiter: ",", format: "%n%u") %>)
               <% end %>
               <span>円</span>
             </td>

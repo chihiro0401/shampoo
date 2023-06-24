@@ -38,7 +38,7 @@ class Admin::ShampooitemsController < ApplicationController
   private
 
   def shampooitem_params
-    params.require(:shampooitem).permit(:brandname, :description, :tax_excluded_price, :image)
+    params.require(:shampooitem).permit(:brandname, :description, :tax_excluded_price, :image, :price)
   end
 
 
