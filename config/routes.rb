@@ -44,6 +44,10 @@ Rails.application.routes.draw do
    get '/users/mypage' => 'users#show'
    get 'check' => 'users#check'
    match '/users/withdrawal' => 'users#withdrawal', via: [:patch, :delete], as: 'users_withdrawal'
+   resources :reviews do
+    resources :review_comments, only: [:create, :destroy]
+end
+     # resources :comments, only: [:create, :destroy]
  end
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
 end
