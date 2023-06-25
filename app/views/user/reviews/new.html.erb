@@ -6,7 +6,16 @@
       </div>
       <div class="col-11 offset-1">
         <%=form_with model: @review, url: reviews_path, local: true do |f| %>
-
+        <% if @review.errors.any? %>
+            <div class="alert alert-danger">
+              <h5>エラーが発生しました。</h5>
+              <ul>
+                <% @review.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
           <div class="form-group row">
             <%= f.label :参考シャンプー画像, class: 'col-md-3'%>
             <%= f.collection_select(:shampooitem_id, Shampooitem.all, :id, :brandname, {prompt: "--選択してください"},class: "col-md-5 form-control") %>

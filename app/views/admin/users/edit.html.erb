@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <th class="col-xs-2"><%= f.label :会員ステータス %></th>
-          <td><%= f.select :is_user_status,[["有効","false"],["退会","true"]], class:"from-control" %></td>
+          <td><%= f.select :is_deleted,[["有効", false],["退会", true]], class:"form-control" %></td>
         </tr>
     </table>
 
