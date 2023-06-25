@@ -11,8 +11,9 @@ class User::ReviewCommentsController < ApplicationController
   end
 
   def destroy
-    User::Comment.find_by(id: params[:id], review_id: params[:review_id]).destroy
-    redirect_to request.referer
+    review_comment = ReviewComment.find_by(id: params[:id], review_id: params[:review_id])
+    review_comment.destroy if review_comment
+    redirect_to request.referer, notice: 'コメントが削除されました'
   end
 
   private

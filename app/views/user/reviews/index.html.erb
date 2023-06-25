@@ -47,6 +47,18 @@
            </td>
          <td><%=link_to review.brandname,review_path(review.id) %></td>
          <td><%= review.description %></td>
+         <td>
+            <%= link_to '編集', edit_review_path(review.id), class: 'btn btn-secondary' %>
+         </td>
+         <td>
+            <% if current_user.favorites.map(&:review_id).include?(review.id)%>
+              <%= link_to '♥', review_favorites_path(review), method: :delete, remote: true %>
+             <%= review.favorites.count %>いいね
+            <% else %>
+              <%= link_to '♡', review_favorites_path(review), method: :post, remote: true %>
+             <%= review.favorites.count %>いいね
+            <% end %>
+          </td>
          </tr>
           <% end %>
       </tbody>

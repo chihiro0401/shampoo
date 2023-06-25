@@ -1,4 +1,5 @@
 class User::ReviewsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
 
 def index
   @reviews = Review.all
@@ -49,4 +50,10 @@ def review_params
   params.require(:review).permit(:brandname, :description, :shampooitem_id, :category_id)
 end
 
+  def  is_matching_login_user
+     @review = Review.find(params[:id])
+    unless @review.user_id == current_user.id
+      redirect_to reviews_path
+    end
+  end
 end

@@ -40,7 +40,9 @@ Rails.application.routes.draw do
 
  scope module: 'user' do
    #レビューについて
-   resources :reviews, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+   resources :reviews, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+   end
    #会員について
    resources :users, only: [:index, :edit, :update, :show]
    #シャンプーについて
@@ -55,6 +57,7 @@ Rails.application.routes.draw do
    #カテゴリーについて
    resources :categories
    end
+
      # resources :comments, only: [:create, :destroy]
  end
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
