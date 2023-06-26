@@ -1,4 +1,5 @@
 class User::ReviewCommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:destroy]
 
   def create
     # @review = Review.find(params[:review_id])
